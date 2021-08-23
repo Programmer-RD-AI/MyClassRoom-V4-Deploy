@@ -8,7 +8,6 @@
         width: 1750px;
         padding-bottom: 50px !important;
         padding-top: 12.5px !important;
-        height: 750px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 25px 15px 50px 2.5px rgba(0, 0, 0, 0.14);
@@ -53,31 +52,36 @@
             <button type="submit" class="btn btn-primary">Add Teacher</button>
         </form>
         <br>
-        <br>
-        <div class="jumbotron"
-            style="background-color:gray !important; overflow: scroll !important; width:1700px !important; height:420px !important">
-            {% for teacher in teachers %}
-            <br>
-            <div style="background-color: lightgray !important; border-radius:12.5px !important;" class="container">
-                <h1> <br> User Name : {{ teacher[0]['User Name'] }} <br> Password : {{ teacher[0]['Password'] }}
-                    <br>
-                    Email : {{ teacher[0]['Email'] }} <br> Subject : {{ teacher[0]['Subject'] }} <br> Whatsapp Number :
-                    {{ teacher[0]['Whatsapp Number'] }}
-                </h1>
-                <br>
-                <a href="/Admin/CRUD/Teacher/Update/{{ teacher[-1]['User Name'] }}/{{ teacher[-1]['Email'] }}"
-                    class="btn btn-primary">Update</a>
-                <br>
-                <br>
-                <a href="/Admin/CRUD/Teacher/Delete/{{ teacher[-1]['User Name'] }}/{{ teacher[-1]['Email'] }}"
-                    class="btn btn-danger">Delete</a>
-                <br>
-                <br>
-            </div>
-            <br>
-            {% endfor %}
-        </div>
         <a href="/Admin/CRUD/Students" class="btn btn-primary">Create Student(s)</a>
     </div>
+</div>
+
+<div class="container overflow-hidden" style='border-radius: 25px !important;'>
+    <div class="row gy-5" style='border-radius: 25px !important;'>
+        {% for teacher in teachers %}
+
+    <div class="col-7" style='border-radius: 25px !important;'>
+      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
+        <h1> <br> User Name : {{ teacher[0]['User Name'] }} <br> Password : {{ teacher[0]['Password'] }}
+            <br>
+            Email : {{ teacher[0]['Email'] }} <br> Subject : {{ teacher[0]['Subject'] }} <br> Whatsapp Number :
+            {{ teacher[0]['Whatsapp Number'] }}
+        </h1>
+        <br>
+        <a href="/Admin/CRUD/Teacher/Update/{{ teacher[-1]['User Name'] }}/{{ teacher[-1]['Email'] }}"
+            class="btn btn-primary">Update</a>
+        <br>
+        <br>
+        <a href="/Admin/CRUD/Teacher/Delete/{{ teacher[-1]['User Name'] }}/{{ teacher[-1]['Email'] }}"
+            class="btn btn-danger">Delete</a>
+        <br>
+        <br>
+    </div>
+    <br>
+      </div>
+    </div>
+
+
+{% endfor %}   </div>
 </div>
 {% endblock %}

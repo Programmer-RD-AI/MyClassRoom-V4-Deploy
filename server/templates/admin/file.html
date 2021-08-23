@@ -8,6 +8,7 @@
 </style>
 {% endblock %}
 {% block body %}
+<br>
 <div class="container">
     <div class="jumbotron">
         <form method="POST">
@@ -19,16 +20,23 @@
             <button type="submit" class="btn btn-primary">Add New File Type</button>
         </form>
         <br>
+    </div>
+</div>
+<div class="container overflow-hidden" style='border-radius: 25px !important;'>
+    <div class="row gy-5" style='border-radius: 25px !important;'>
         {% for file_type in file_types %}
-        <div class="jumbotron" style="background-color: lightgray;">
-            <a href="/Admin/File/{{file_type}}"><h3><b> File Saving Type : {{ file_type }}</b></h3></a>
+    <div class="col-6" style='border-radius: 25px !important;'>
+      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
+        <a href="/Admin/File/{{file_type}}"><h3><b> File Saving Type : {{ file_type }}</b></h3></a>
             <br>
             <a href="/Admin/File/{{file_type}}/Delete" class="btn btn-danger">Delete</a>
             <br>
             <br>
             <a href="/Admin/File/{{file_type}}/Update" class="btn btn-primary">Update</a>
-        </div>
-        {% endfor %}
+      </div>
     </div>
+
+
+{% endfor %}   </div>
 </div>
 {% endblock %}

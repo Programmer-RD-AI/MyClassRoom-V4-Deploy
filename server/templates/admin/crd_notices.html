@@ -8,7 +8,6 @@
         width: 1750px;
         padding-bottom: 50px !important;
         padding-top: 12.5px !important;
-        height: 750px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 25px 15px 50px 2.5px rgba(0, 0, 0, 0.14);
@@ -35,24 +34,34 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Notice</button>
         </form>
-        <br>
-        <hr>
-        <br>
-        <div
-            style="background-color:gray !important; overflow: scroll !important; width:1700px !important; height:420px !important">
-            {% for notice in notices %}
-            <br>
-            <div class="container jumbotron">
-                <hr>
-                <h1>Title : {{ notice['Title'] }} <br> Description : {{ notice['Description'] }}</h1>
-                <hr>
-                <a href="/Admin/CRD/Notice/Delete/{{ notice['Title'] }}/{{ notice['Description'] }}"
-                    class="btn btn-danger">Delete</a>
-            </div>
-            <br>
-            {% endfor %}
-        </div>
     </div>
 </div>
-{% endblock %}
+<br>
 
+
+<div class="container overflow-hidden" style='border-radius: 25px !important;'>
+    <div class="row gy-5" style='border-radius: 25px !important;'>
+        {% for notice in notices %}
+
+    <div class="col-6" style='border-radius: 25px !important;'>
+      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
+        
+    <br>
+    <div class="container jumbotron">
+        <hr>
+        <h1>Title : {{ notice['Title'] }} <br> Description : {{ notice['Description'] }}</h1>
+        <hr>
+        <a href="/Admin/CRD/Notice/Delete/{{ notice['Title'] }}/{{ notice['Description'] }}"
+            class="btn btn-danger">Delete</a>
+    </div>
+
+
+      </div>
+    </div>
+
+
+{% endfor %}   </div>
+</div>
+
+
+{% endblock %}

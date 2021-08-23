@@ -4,6 +4,9 @@ from server.db.notices import *
 @app.route("/Teacher")
 @app.route("/Teacher/")
 def teacher():
+    """
+    Teacher Home Page
+    """
     try:
         conditions = [
             "Auth" in session,
@@ -22,6 +25,9 @@ def teacher():
 @app.route('/Teacher/Log/Out')
 @app.route('/Teacher/Log/Out/')
 def teacher_log_out():
+    """
+    Teacher Log Out
+    """
     try:
         pop = ["Auth", "User Name", "Password", "Role", "Returned Data"]
         for poper in pop:

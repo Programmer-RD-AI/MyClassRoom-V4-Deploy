@@ -8,7 +8,6 @@
         width: 1750px;
         padding-bottom: 50px !important;
         padding-top: 12.5px !important;
-        height: 850px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 25px 15px 50px 2.5px rgba(0, 0, 0, 0.14);
@@ -43,12 +42,19 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Student</button>
         </form>
-        <br>
-        <div style="background-color:gray !important; overflow: scroll !important; width:1750px !important; height:420px !important">
-            {% for student in students %}
-            <br>
-            <div class="container jumbotron" style="color:black;">
-                <hr>
+    </div>
+    <br>
+    <a href="/Admin/CRUD/Teacher" class="btn btn-primary">Create Teacher(s)</a>
+    <br>
+</div>
+<br>
+<div class="container overflow-hidden" style='border-radius: 25px !important;'>
+    <div class="row gy-5" style='border-radius: 25px !important;'>
+        {% for student in students %}
+
+    <div class="col-6" style='border-radius: 25px !important;'>
+      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
+        <hr>
                 <h1>User Name : {{ student[0]['User Name'] }} <br> Password : {{ student[0]['Password'] }} <br> Email :
                     {{ student[0]['Email']  }} <br> Whatsapp Number : {{ student[0]['Whatapp Number'] }}</h1>
                 <hr>
@@ -57,10 +63,10 @@
                 <a href="/Admin/CRUD/Student/Delete/{{ student[1]['User Name'] }}/{{ student[1]['Email'] }}"
                     class="btn btn-danger">Delete</a>
                 <hr>
-            </div>
-            {% endfor %}
-        </div>
+      </div>
     </div>
-    <a href="/Admin/CRUD/Teacher" class="btn btn-primary">Create Teacher(s)</a>
+
+
+{% endfor %}   </div>
 </div>
 {% endblock %}

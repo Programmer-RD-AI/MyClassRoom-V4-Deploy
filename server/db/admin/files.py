@@ -19,18 +19,18 @@ class File_Admin:
         collection = self.db[str(file_type_name)]
         choice = random.randint(0, 1000000000000)
         if file.filename in os.listdir(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/"
+            f"./files/{file_type_name}/"
         ):
             file.filename = f"{choice}{file.filename}"
         file.save(
             os.path.join(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/",
+                f"./files/{file_type_name}/",
                 file.filename,
             )
         )
 
         with open(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/{file.filename}",
+            f"./files/{file_type_name}/{file.filename}",
             "rb",
         ) as f:
             encoded = Binary(f.read())
@@ -55,7 +55,7 @@ class File_Admin:
             }
         )
         os.remove(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/{self.file.filename}"
+            f"./files/{file_type_name}/{self.file.filename}"
         )
         return True
 
@@ -88,10 +88,10 @@ class File_Admin:
         # file.write("")
         # file.close()
         if file_type_name not in os.listdir(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/file/"
+            f"./file/"
         ):
             os.mkdir(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/file/{file_type_name}/"
+                f"./file/{file_type_name}/"
             )
         # except:
         #     os.mkdir(
@@ -99,14 +99,14 @@ class File_Admin:
         #     )
         try:
             with open(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/file/{file_type_name}/{results[0]['filename']}",
+                f"./file/{file_type_name}/{results[0]['filename']}",
                 "wb",
             ) as file:
                 file.write(results[0]["file"])
         except:
             pass
         return [
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/file/{file_type_name}/",
+            f"./file/{file_type_name}/",
             results[0]["filename"],
         ]
 
@@ -126,7 +126,7 @@ class File_Admin:
         collection.insert_one({})
         collection.delete_one({})
         os.mkdir(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/"
+            f"./files/{file_type_name}/"
         )
         return True
 
@@ -136,16 +136,16 @@ class File_Admin:
         try:
             print("Done 1")
             os.remove(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/"
+                f"./files/{file_type_name}/"
             )
             print("Done 1")
         except:
             shutil.rmtree(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}"
+                f"./files/{file_type_name}"
             )
         else:
             shutil.rmtree(
-                f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{file_type_name}/"
+                f"./files/{file_type_name}/"
             )
         print("Done")
         return True
@@ -164,8 +164,8 @@ class File_Admin:
             results.append(result)
         old_collection.drop()
         os.rename(
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{old_file_name}/",
-            f"/home/ranuga/Programming/Projects/Python/Flask/Done/My-Class-Room-V2/files/{new_file_name}/",
+            f"./files/{old_file_name}/",
+            f"./files/{new_file_name}/",
         )
         new_file_name = self.db[new_file_name]
         if results == []:
