@@ -39,7 +39,7 @@ Datasets
 Troubleshooting
 ------------
 
-If you have any problem with running the web application or any other file. Try creating a new pymongo cloud cluster by going to pymongo.com and then change the link of the MongoClient in private/mongodb-client.json file.
+If you have any problem with running the web application or any other file. Try creating a new pymongo cloud cluster by going to pymongo.com and then change the link of the MongoClient in private/mongodb-client.json file. and then run mongodb/add_user_to_db.py and enter 'user name','password','your email','Admin','N',then done.
 <br>
 or
 <br>
