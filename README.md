@@ -1,5 +1,3 @@
-# EmoPro.tech
-
 CONTENTS OF THIS FILE
 ---------------------
 
