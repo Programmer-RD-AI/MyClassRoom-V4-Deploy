@@ -88,7 +88,7 @@ class File_Admin:
         # file.write("")
         # file.close()
         if file_type_name not in os.listdir(
-            f"./file/"
+            "./file/"
         ):
             os.mkdir(
                 f"./file/{file_type_name}/"

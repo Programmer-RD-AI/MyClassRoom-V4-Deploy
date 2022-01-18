@@ -8,7 +8,7 @@ cluster = MongoClient(
 )
 db = cluster["test"]
 collectin = db["test"]
-with open(f"./mongodb/get_the_last_id.py", "rb") as f:
+with open("./mongodb/get_the_last_id.py", "rb") as f:
     encoded = Binary(f.read())
 collectin.insert_one({'test':encoded,'file':'get_the_last_id.py'})
 results = []
