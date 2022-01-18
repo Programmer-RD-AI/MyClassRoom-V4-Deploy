@@ -1,7 +1,8 @@
-from pymongo import *
 import base64
+
 import bson
 from bson.binary import Binary
+from pymongo import *
 
 cluster = MongoClient(
     "mongodb+srv://Ranuga:Ranuga2008@cluster0.xgqas.mongodb.net/<dbname>?retryWrites=true&w=majority"
@@ -10,10 +11,9 @@ db = cluster["test"]
 collectin = db["test"]
 with open("./mongodb/get_the_last_id.py", "rb") as f:
     encoded = Binary(f.read())
-collectin.insert_one({'test':encoded,'file':'get_the_last_id.py'})
+collectin.insert_one({"test": encoded, "file": "get_the_last_id.py"})
 results = []
-for result in collectin.find({'file':'get_the_last_id.py'}):
+for result in collectin.find({"file": "get_the_last_id.py"}):
     results.append(result)
-with open('test.py','wb') as a:
-    a.write(results[0]['test'])
-
+with open("test.py", "wb") as a:
+    a.write(results[0]["test"])
