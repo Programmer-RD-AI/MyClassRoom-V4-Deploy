@@ -41,29 +41,29 @@
   </div>
 </div>
 <br />
-  
-<div class="container overflow-hidden" style="border-radius: 25px !important">
-    <div class="row gy-5" style="border-radius: 25px !important">
-      {% for final_ in final %}
-      <div class="col-6" style="border-radius: 25px !important">
-        <div class="p-3 border bg-light" style="border-radius: 25px !important">
-            <h1>{{ final_[0] }}</h1>
-            <a
-              href="/Admin/CRUD/Subjects/Update/{{ final_[1] }}"
-              class="btn btn-primary"
-              >Update</a
-            >
-            <a
-              href="/Admin/CRUD/Subjects/Delete/{{ final_[1] }}"
-              class="btn btn-danger"
-              >Delete</a
-            >
-        </div>
-      </div>
 
-      {% endfor %}
+<div class="container overflow-hidden" style="border-radius: 25px !important">
+  <div class="row gy-5" style="border-radius: 25px !important">
+    {% for final_ in final %}
+    <div class="col-6" style="border-radius: 25px !important">
+      <div class="p-3 border bg-light" style="border-radius: 25px !important">
+        <h1>{{ final_[0] }}</h1>
+        <a
+          href="/Admin/CRUD/Subjects/Update/{{ final_[1] }}"
+          class="btn btn-primary"
+          >Update</a
+        >
+        <a
+          href="/Admin/CRUD/Subjects/Delete/{{ final_[1] }}"
+          class="btn btn-danger"
+          >Delete</a
+        >
+      </div>
     </div>
+
+    {% endfor %}
   </div>
+</div>
 
 <br />
-  {% endblock %}
+{% endblock %}

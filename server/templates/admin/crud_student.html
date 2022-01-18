@@ -1,72 +1,111 @@
-{% extends '/admin/base.html' %}
-{% block head %}
+{% extends '/admin/base.html' %} {% block head %}
 <title>Admin Crud Students</title>
 <style>
-    .jumbotron.form {
-        color: black !important;
-        background-image: linear-gradient(to top, gray 0% lightgray 100%) !important;
-        width: 1750px;
-        padding-bottom: 50px !important;
-        padding-top: 12.5px !important;
-        margin: 7em auto;
-        border-radius: 1.5em;
-        box-shadow: 25px 15px 50px 2.5px rgba(0, 0, 0, 0.14);
-    }
+  .jumbotron.form {
+    color: black !important;
+    background-image: linear-gradient(
+      to top,
+      gray 0% lightgray 100%
+    ) !important;
+    width: 1750px;
+    padding-bottom: 50px !important;
+    padding-top: 12.5px !important;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 25px 15px 50px 2.5px rgba(0, 0, 0, 0.14);
+  }
 
-    .container.form {
-        padding-right: 2500px !important;
-        padding-left: 55px !important;
-    }
+  .container.form {
+    padding-right: 2500px !important;
+    padding-left: 55px !important;
+  }
 </style>
-{% endblock %}
-{% block body %}
+{% endblock %} {% block body %}
 <div class="container form">
-    <div class="jumbotron form">
-        <br>
-        <form method="POST">
-            <div class="form-group">
-                <label for="user_name">User Name</label>
-                <input required name="UN" placeholder="User Name" type="text" class="form-control" id="user_name">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input required name="P" placeholder="Password" type="password" class="form-control" id="password">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input required name="E" placeholder="Email" type="email" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-                <label for="wan">Whatsapp Number</label>
-                <input required name="WAN" placeholder="Whatsapp Number" type="number" class="form-control" id="wan">
-            </div>
-            <button type="submit" class="btn btn-primary">Add Student</button>
-        </form>
-    </div>
-    <br>
-    <a href="/Admin/CRUD/Teacher" class="btn btn-primary">Create Teacher(s)</a>
-    <br>
+  <div class="jumbotron form">
+    <br />
+    <form method="POST">
+      <div class="form-group">
+        <label for="user_name">User Name</label>
+        <input
+          required
+          name="UN"
+          placeholder="User Name"
+          type="text"
+          class="form-control"
+          id="user_name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          required
+          name="P"
+          placeholder="Password"
+          type="password"
+          class="form-control"
+          id="password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          required
+          name="E"
+          placeholder="Email"
+          type="email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="wan">Whatsapp Number</label>
+        <input
+          required
+          name="WAN"
+          placeholder="Whatsapp Number"
+          type="number"
+          class="form-control"
+          id="wan"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
+  </div>
+  <br />
+  <a href="/Admin/CRUD/Teacher" class="btn btn-primary">Create Teacher(s)</a>
+  <br />
 </div>
-<br>
-<div class="container overflow-hidden" style='border-radius: 25px !important;'>
-    <div class="row gy-5" style='border-radius: 25px !important;'>
-        {% for student in students %}
+<br />
+<div class="container overflow-hidden" style="border-radius: 25px !important">
+  <div class="row gy-5" style="border-radius: 25px !important">
+    {% for student in students %}
 
-    <div class="col-6" style='border-radius: 25px !important;'>
-      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
-        <hr>
-                <h1>User Name : {{ student[0]['User Name'] }} <br> Password : {{ student[0]['Password'] }} <br> Email :
-                    {{ student[0]['Email']  }} <br> Whatsapp Number : {{ student[0]['Whatapp Number'] }}</h1>
-                <hr>
-                <a href="/Admin/CRUD/Student/Update/{{ student[1]['User Name'] }}/{{ student[1]['Email'] }}"
-                    class="btn btn-primary">Update</a>
-                <a href="/Admin/CRUD/Student/Delete/{{ student[1]['User Name'] }}/{{ student[1]['Email'] }}"
-                    class="btn btn-danger">Delete</a>
-                <hr>
+    <div class="col-6" style="border-radius: 25px !important">
+      <div class="p-3 border bg-light" style="border-radius: 25px !important">
+        <hr />
+        <h1>
+          User Name : {{ student[0]['User Name'] }} <br />
+          Password : {{ student[0]['Password'] }} <br />
+          Email : {{ student[0]['Email'] }} <br />
+          Whatsapp Number : {{ student[0]['Whatapp Number'] }}
+        </h1>
+        <hr />
+        <a
+          href="/Admin/CRUD/Student/Update/{{ student[1]['User Name'] }}/{{ student[1]['Email'] }}"
+          class="btn btn-primary"
+          >Update</a
+        >
+        <a
+          href="/Admin/CRUD/Student/Delete/{{ student[1]['User Name'] }}/{{ student[1]['Email'] }}"
+          class="btn btn-danger"
+          >Delete</a
+        >
+        <hr />
       </div>
     </div>
 
-
-{% endfor %}   </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

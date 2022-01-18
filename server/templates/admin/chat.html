@@ -20,12 +20,12 @@
 </div>
 <br />
 <br />
-<div class="container overflow-hidden" style='border-radius: 25px !important;'>
-    <div class="row gy-5" style='border-radius: 25px !important;'>
-{% for message in messages %}
+<div class="container overflow-hidden" style="border-radius: 25px !important">
+  <div class="row gy-5" style="border-radius: 25px !important">
+    {% for message in messages %}
 
-    <div class="col-6" style='border-radius: 25px !important;'>
-      <div class="p-3 border bg-light" style='border-radius: 25px !important;'>
+    <div class="col-6" style="border-radius: 25px !important">
+      <div class="p-3 border bg-light" style="border-radius: 25px !important">
         {% if message['User Name'] == 'Admin' %}
         <h4>Message : <b> {{ message['Message'] }} </b></h4>
         <br />
@@ -39,6 +39,7 @@
       </div>
     </div>
 
-
-{% endfor %}   </div>
-</div>{% endblock %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

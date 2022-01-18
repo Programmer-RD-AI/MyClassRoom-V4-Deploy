@@ -1,14 +1,14 @@
+import json
+
 from flask import *
 from flask_restful import *
 from pymongo import *
-import json
 
+from server.routes import *
 
 
 def get_link():
-    with open(
-        "./private/mongodb-client.json"
-    ) as json_info:
+    with open("./private/mongodb-client.json") as json_info:
         info = json.load(json_info)
     return info["MongoDB-Client-Url"]
 
@@ -26,4 +26,3 @@ except:
     cluster = MongoClient(link, connect=False)
 else:
     cluster = MongoClient(link, connect=True)
-from server.routes import *

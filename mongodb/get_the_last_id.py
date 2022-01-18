@@ -1,11 +1,10 @@
 import json
+
 from pymongo import *
 
 
 def get_link():
-    with open(
-        "./private/mongodb-client.json"
-    ) as json_info:
+    with open("./private/mongodb-client.json") as json_info:
         info = json.load(json_info)
     return info["MongoDB-Client-Url"]
 

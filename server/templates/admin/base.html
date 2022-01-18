@@ -30,9 +30,9 @@
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
         color: black !important;
-        background-image: url('https://wallpapercave.com/wp/wp5748130.jpg') !important;
-    overflow: hidden;
-    background-size: cover !important;
+        background-image: url("https://wallpapercave.com/wp/wp5748130.jpg") !important;
+        overflow: hidden;
+        background-size: cover !important;
       }
 
       .footer {
@@ -392,9 +392,15 @@
           {% endfor %} {% endif %} {% endwith %}
         </div>
       </div>
-      <div style="        background-image: url('https://wallpapercave.com/wp/wp5748130.jpg') !important;
-      overflow: hidden;
-      background-size: cover !important;">{% block body %} {% endblock %}</div>
+      <div
+        style="
+          background-image: url('https://wallpapercave.com/wp/wp5748130.jpg') !important;
+          overflow: hidden;
+          background-size: cover !important;
+        "
+      >
+        {% block body %} {% endblock %}
+      </div>
       <div class="footer">
         <h6>
           <b>

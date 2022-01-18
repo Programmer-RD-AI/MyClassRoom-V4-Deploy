@@ -1,26 +1,33 @@
-{% extends '/admin/base.html' %}
-{% block head %}
+{% extends '/admin/base.html' %} {% block head %}
 <title>Admin Marks Prediction</title>
 <style>
-    .card {
-        display: inline-block !important;
-    }
+  .card {
+    display: inline-block !important;
+  }
 </style>
-{% endblock %}
-{% block body %}
+{% endblock %} {% block body %}
 <div>
-    <br>
-    <center>
-                <a href="/Admin/Predicting/Marks/T1" style="width: 250px !important; height:75px !important;"
-            class="btn btn-primary">Term 1 Marks
-            Prediction</a>
-        <a href="/Admin/Predicting/Marks/T2" style="width: 250px !important; height:75px !important;"
-            class="btn btn-primary">Term 2 Marks
-            Prediction</a>
-        <a href="/Admin/Predicting/Marks/T3" style="width: 250px !important; height:75px !important;"
-            class="btn btn-primary">Term 3 Marks
-            Prediction</a>
-        <br>
-    </center>
+  <br />
+  <center>
+    <a
+      href="/Admin/Predicting/Marks/T1"
+      style="width: 250px !important; height: 75px !important"
+      class="btn btn-primary"
+      >Term 1 Marks Prediction</a
+    >
+    <a
+      href="/Admin/Predicting/Marks/T2"
+      style="width: 250px !important; height: 75px !important"
+      class="btn btn-primary"
+      >Term 2 Marks Prediction</a
+    >
+    <a
+      href="/Admin/Predicting/Marks/T3"
+      style="width: 250px !important; height: 75px !important"
+      class="btn btn-primary"
+      >Term 3 Marks Prediction</a
+    >
+    <br />
+  </center>
 </div>
 {% endblock %}
