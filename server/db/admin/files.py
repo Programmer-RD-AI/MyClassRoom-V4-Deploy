@@ -1,11 +1,13 @@
+import base64
 import os
 import random
-import base64
+import shutil
+
 import bson
 from bson.binary import Binary
-from server import *
+
 from mongodb.get_the_last_id import *
-import shutil
+from server import *
 
 
 class File_Admin:
@@ -18,20 +20,16 @@ class File_Admin:
     def add(self, file, file_type_name):
         collection = self.db[str(file_type_name)]
         choice = random.randint(0, 1000000000000)
-        if file.filename in os.listdir(
-            f"./files/{file_type_name}/"
-        ):
+        if file.filename in os.listdir(f"./files/{file_type_name}/"):
             file.filename = f"{choice}{file.filename}"
-        file.save(
-            os.path.join(
-                f"./files/{file_type_name}/",
-                file.filename,
-            )
-        )
+        file.save(os.path.join(
+            f"./files/{file_type_name}/",
+            file.filename,
+        ))
 
         with open(
-            f"./files/{file_type_name}/{file.filename}",
-            "rb",
+                f"./files/{file_type_name}/{file.filename}",
+                "rb",
         ) as f:
             encoded = Binary(f.read())
         _id = get_custom_last_id(db="File", collection=file_type_name)
@@ -45,18 +43,14 @@ class File_Admin:
                 results.append(result)
             if results != []:
                 _id = _id + 1
-        collection.insert_one(
-            {
-                "_id": _id,
-                "file": encoded,
-                "filename": self.file_2.filename,
-                "desc": self.description,
-                "file_type_name": file_type_name,
-            }
-        )
-        os.remove(
-            f"./files/{file_type_name}/{self.file.filename}"
-        )
+        collection.insert_one({
+            "_id": _id,
+            "file": encoded,
+            "filename": self.file_2.filename,
+            "desc": self.description,
+            "file_type_name": file_type_name,
+        })
+        os.remove(f"./files/{file_type_name}/{self.file.filename}")
         return True
 
     def get_all_files(self, file_type_name):
@@ -71,27 +65,21 @@ class File_Admin:
         results = []
         collection = self.db[str(file_type_name)]
         choice = random.randint(0, 100000000)
-        for result in collection.find(
-            {
+        for result in collection.find({
                 "filename": filename,
                 "desc": description,
                 # "file_type_name": file_type_name,
-            }
-        ):
+        }):
             results.append(result)
         print("*" * 100)
         print(results)
         print("+" * 100)
-        if file_type_name not in os.listdir(
-            f"./file/"
-        ):
-            os.mkdir(
-                f"./file/{file_type_name}/"
-            )
+        if file_type_name not in os.listdir(f"./file/"):
+            os.mkdir(f"./file/{file_type_name}/")
         try:
             with open(
-                f"./file/{file_type_name}/{results[0]['filename']}",
-                "wb",
+                    f"./file/{file_type_name}/{results[0]['filename']}",
+                    "wb",
             ) as file:
                 file.write(results[0]["file"])
         except:
@@ -103,22 +91,18 @@ class File_Admin:
 
     def delete(self, description, filename, file_type_name):
         collection = self.db[str(file_type_name)]
-        collection.delete_one(
-            {
-                "desc": description,
-                "filename": filename,
-                "file_type_name": file_type_name,
-            }
-        )
+        collection.delete_one({
+            "desc": description,
+            "filename": filename,
+            "file_type_name": file_type_name,
+        })
         return True
 
     def add_file_type(self, file_type_name):
         collection = self.db[file_type_name]
         collection.insert_one({})
         collection.delete_one({})
-        os.mkdir(
-            f"./files/{file_type_name}/"
-        )
+        os.mkdir(f"./files/{file_type_name}/")
         return True
 
     def delete_file_type(self, file_type_name):
@@ -126,18 +110,12 @@ class File_Admin:
         collection.drop()
         try:
             print("Done 1")
-            os.remove(
-                f"./files/{file_type_name}/"
-            )
+            os.remove(f"./files/{file_type_name}/")
             print("Done 1")
         except:
-            shutil.rmtree(
-                f"./files/{file_type_name}"
-            )
+            shutil.rmtree(f"./files/{file_type_name}")
         else:
-            shutil.rmtree(
-                f"./files/{file_type_name}/"
-            )
+            shutil.rmtree(f"./files/{file_type_name}/")
         print("Done")
         return True
 
